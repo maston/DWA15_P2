@@ -21,6 +21,8 @@
 
 .password-text {
   font-family:consolas,courier;
+  font-size: 125%;
+  color: black;
 }
 
 .password-text-not-set {
