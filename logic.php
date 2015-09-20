@@ -4,7 +4,7 @@
 // echo $_POST['add_symbol'];
 
 // set up arrays of words and symbols
-$words = Array('chair', 'two', 'window', 'cords', 'musical', 'zebra', 'xylophone', 'penguin', 'home', 'dog', 'final', 'ink', 'teacher', 'fun', 'website', 'banana', 'uncle', 'softly', 'mega', 'ten', 'awesome', 'attach', 'blue');
+$words = str_getcsv(file_get_contents('random_words.txt'));
 $symbols = Array('$', '#', '&', '*', '^', '@', '%');
 $pwd_text_class = 'password-text';
 // get password length from user settings
