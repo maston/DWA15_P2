@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL); # Report errors/warnings/notices encountered
-// ini_set('display_errors', 1); # display errors on page
+// ini_set('display_errors', 1); # display errors on page disabled for prod version of P2
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ error_reporting(E_ALL); # Report errors/warnings/notices encountered
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/lavish-bootstrap.css">
 	<link rel="stylesheet" href="css/site.css">
-  <!-- PHP require statment -->
+  <!-- PHP require statment to include logic.php -->
 	<?php
 	   require('logic.php');
 	?>
@@ -23,7 +23,7 @@ error_reporting(E_ALL); # Report errors/warnings/notices encountered
 <body>
 <!-- begin bootstrap container -->
 <div class="container">
-
+<!--  begin header section  -->
 <header class="row">
   <h1>Maston's xkcd Password Generator</h1>
   <p class="intro-copy">
@@ -34,62 +34,58 @@ error_reporting(E_ALL); # Report errors/warnings/notices encountered
     Enjoy!
   </p>
 </header>
+<!--  end header section  -->
 
-<!--  begin main content for index.html -->
+<!--  begin main content for index.php -->
 <main>
-
+<!--  begin section for password managment -->
   <section class="row password-section">
       <div class="col-md-12 create-password">
-    <form method="POST" action="index.php" id="password-form">
-      <h3>Create Your Password</h3>
-      <fieldset>
-        <legend>Basic Structure:</legend>
-          <label for="txt-num-words">Enter # of words (1 to 9):</lable>
-            <input type="number" name="num_words" id="txt-num-words" min="1" max="9" maxlength="1"><br>
-
-          <label for="chk-add-number">Add a number?</lable>
-            <input type="checkbox" name="add_number" id="chk-add-number"><br>
-
-          <label for="chk-add-symbol">Add a symbol?</lable>
-            <input type="checkbox" name="add_symbol" id="chk-add-symbol"><br>
-      </fieldset>
-      <fieldset>
-        <legend>Enhanced Options (Optional):</legend>
-          <input type="radio" name="options_type" value="upper" id="radio-uppercase">
-          <label for="radio-uppercase">Uppercase</label><br>
-          <input type="radio" name="options_type" value="lower" id="radio-lowercase">
-          <label for="radio-lowercase">Lowercase</label><br>
-          <input type="radio" name="options_type" value="first_letter" id="radio-firstletter">
-          <label for="radio-firstletter">First Letters Uppercase</label><br>
-          <input type="radio" name="options_type" value="special_symbols" id="radio-symbol">
-          <label for="radio-symbol">Special Symbols for Letters</label><br>
-
-      </fieldset>
-      <input type="submit" value="I can haz password, plz?" id="param-submit-button">
-
-
-    </form>
-    </div>
-    <div class="col-md-12 the-password-output">
+      <form method="GET" action="index.php" id="password-form">
+        <h3>Create Your Password</h3>
+        <!--  Basic Structure Options -->
+        <fieldset>
+          <legend>Basic Structure:</legend>
+            <label for="txt-num-words">Enter # of words (1 to 9):</label>
+              <input type="number" name="num_words" id="txt-num-words" min="1" max="9" maxlength="1"><br>
+            <label for="chk-add-number">Add a number?</label>
+              <input type="checkbox" name="add_number" id="chk-add-number"><br>
+            <label for="chk-add-symbol">Add a symbol?</label>
+              <input type="checkbox" name="add_symbol" id="chk-add-symbol"><br>
+        </fieldset>
+        <!--  Optional Enhanced Options -->
+        <fieldset>
+          <legend>Enhanced Options (Optional):</legend>
+            <input type="radio" name="options_type" value="upper" id="radio-uppercase">
+            <label for="radio-uppercase">Uppercase</label><br>
+            <input type="radio" name="options_type" value="lower" id="radio-lowercase">
+            <label for="radio-lowercase">Lowercase</label><br>
+            <input type="radio" name="options_type" value="first_letter" id="radio-firstletter">
+            <label for="radio-firstletter">First Letters Uppercase</label><br>
+            <input type="radio" name="options_type" value="special_symbols" id="radio-symbol">
+            <label for="radio-symbol">Special Symbols for Letters</label><br>
+        </fieldset>
+        <input type="submit" value="I can haz password, plz?" id="param-submit-button">
+      </form>
+      </div>
+      <!--  password output -->
+      <div class="col-md-12 the-password-output">
         <h3>Your password is:</h3>
         <p class=<?= $pwd_text_class?>><?php echo $pwd ?></p>
-    </div>
-
+      </div>
   </section>
-
+<!--  end section for password managment -->
 
 <!--  begin row for about section  -->
   <section class="row">
-<!--  begin section for about  -->
-  <div class="col-md-12 about-section">
-      <h3>Password Strength</h3>
-      <a href="http://xkcd.com/936/"><img border="0" alt="xkcd password strength explained" src="img/password_strength.png"></a>
-  </div>
-<!--  end section for about  -->
+    <div class="col-md-12 about-section">
+        <h3>Password Strength</h3>
+        <a href="http://xkcd.com/936/"><img border="0" alt="xkcd password strength explained" src="img/password_strength.png"></a>
+    </div>
   </section>
 <!--  end row for about section  -->
 
-
-
+</div>
+<!-- end bootstrap container -->
 </body>
 </html>

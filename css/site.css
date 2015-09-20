@@ -1,9 +1,10 @@
+/* Sarah Maston - CSCIE-15 - Dynamic Web Applications - Project 2 - CSS */
+
 .container {
   text-align:center;
 }
-.password-section {
-  text-align: center;
-}
+
+ /* Create Your Password section */
 .create-password {
   background-color: #E5F0C1;  /* light green*/
   border: 1px solid black;
@@ -11,6 +12,7 @@
   margin-bottom: 1em;
 }
 
+/* password output section */
 .the-password-output {
   background-color: #D0CFD2;  /* purply gray */
   height: 100%;
@@ -19,6 +21,7 @@
   margin-bottom: 1em;
 }
 
+/* password text */
 .password-text {
   font-family:consolas,courier;
   font-size: 125%;
@@ -29,6 +32,7 @@
   font-style: italic;
 }
 
+/* submit button for form */
 #param-submit-button {
   margin-top:1em;
   margin-bottom: 1em;

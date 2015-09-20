@@ -1,26 +1,33 @@
 <?php
-//Maston's xkcd Password Generator
-//DWA15 - P2
-//logic.php
+// Maston's xkcd Password Generator
+// DWA15 - P2
+// logic.php
 
-//site vars
+//php site vars
 $pwd_text_class = 'password-text';
 
-// MAIN 
-if ($_POST['num_words']=='') {
+//vars from index.php in $_GET
+// num_words -> number of words user wants in a password, 1-9 words
+// options_type -> special options added to password;upper/lower/first case or symbols.
+// add_number -> checkbox to add a number to end of password
+// add_symbol -> checkbox to add a symbol to end of password
+
+// MAIN
+if ($_GET['num_words']=='') {
   //if this is first visit or num_words is empty
   $pwd = '(password parameters not set yet)';
   $pwd_text_class = 'password-text-not-set';
 }
 else {
   //builds the password.
-  $pwd = buildPassword($_POST['num_words']);
+  $pwd = buildPassword($_GET['num_words']);
 }
 
 // ****************************
 // function: buildPassword
 // param: $pwd_length - user entered number of words to be in password
-// summary:
+// summary: primary function of app to build the password given user params
+// submitted.
 // returns: the password
 // ****************************
 function buildPassword($pwd_length) {
@@ -29,21 +36,21 @@ function buildPassword($pwd_length) {
 
   // get first word for password
   $first_word = array_rand($words);
-  $pwd = specialOptions($words[$first_word], $_POST['options_type']);
+  $pwd = specialOptions($words[$first_word], $_GET['options_type']);
 
   for ($i=1; $i<$pwd_length; $i++) {
     $pwd .= '-';  // concat hyphen to password
     $next_word_key = array_rand($words);  // get random key for next word for password
-    $pwd .= specialOptions($words[$next_word_key], $_POST['options_type']);  // concat next word to password
+    $pwd .= specialOptions($words[$next_word_key], $_GET['options_type']);  // concat next word to password
   }
 
   // if adding a number was selected we add one from the range 1 to 100
-  if ($_POST['add_number']==true) {
+  if ($_GET['add_number']==true) {
     $pwd .= rand(1, 100);
   }
 
   // if adding a symbol was selected we add one from $symbols array
-  if ($_POST['add_symbol']==true) {
+  if ($_GET['add_symbol']==true) {
     $get_symbol = array_rand($symbols);
     $pwd .= $symbols[$get_symbol];
   }
