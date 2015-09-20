@@ -6,7 +6,7 @@ error_reporting(E_ALL); # Report errors/warnings/notices encountered
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Maston's xkcd password generator</title>
+	<title>Maston's xkcd Password Generator</title>
   <meta charset="utf-8">
 	<meta name="author" content="Sarah Maston">
 	<meta name="description" content="CSCI E-15 - Dynamic Web Applications - Project Two - xkcd password generator">
@@ -25,7 +25,7 @@ error_reporting(E_ALL); # Report errors/warnings/notices encountered
 <div class="container">
 
 <header class="row">
-  <h1>Maston's xkcd password generator</h1>
+  <h1>Maston's xkcd Password Generator</h1>
   <p class="intro-copy">
     Welcome to Maston's xkcd password generator.<br>
     This app will generate a <a href="http://xkcd.com/936/">xkcd styled password</a> for you.<br>
@@ -40,18 +40,34 @@ error_reporting(E_ALL); # Report errors/warnings/notices encountered
 
   <section class="row password-section">
       <div class="col-md-12 create-password">
-    <h3>Create your password:</h3>
     <form method="POST" action="index.php" id="password-form">
-      <label for="txt-num-words">Enter # of words:</lable>
-      <input type="number" name="num_words" id="txt-num-words" min="1" max="10"><br>
+      <h3>Create Your Password</h3>
+      <fieldset>
+        <legend>Basic Structure:</legend>
+          <label for="txt-num-words">Enter # of words (1 to 9):</lable>
+            <input type="number" name="num_words" id="txt-num-words" min="1" max="9" maxlength="1"><br>
 
-      <label for="chk-add-number">Add a number?</lable>
-      <input type="checkbox" name="add_number" id="chk-add-number"><br>
+          <label for="chk-add-number">Add a number?</lable>
+            <input type="checkbox" name="add_number" id="chk-add-number"><br>
 
-      <label for="chk-add-symbol">Add a symbol?</lable>
-      <input type="checkbox" name="add_symbol" id="chk-add-symbol"><br>
+          <label for="chk-add-symbol">Add a symbol?</lable>
+            <input type="checkbox" name="add_symbol" id="chk-add-symbol"><br>
+      </fieldset>
+      <fieldset>
+        <legend>Enhanced Options (Optional):</legend>
+          <input type="radio" name="options_type" value="upper" id="radio-uppercase">
+          <label for="radio-uppercase">Uppercase</label><br>
+          <input type="radio" name="options_type" value="lower" id="radio-lowercase">
+          <label for="radio-lowercase">Lowercase</label><br>
+          <input type="radio" name="options_type" value="first_letter" id="radio-firstletter">
+          <label for="radio-firstletter">First Letters Uppercase</label><br>
+          <input type="radio" name="options_type" value="special_symbols" id="radio-symbol">
+          <label for="radio-symbol">Special Symbols for Letters</label><br>
 
+      </fieldset>
       <input type="submit" value="I can haz password, plz?" id="param-submit-button">
+
+
     </form>
     </div>
     <div class="col-md-12 the-password-output">
