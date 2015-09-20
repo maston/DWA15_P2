@@ -47,7 +47,7 @@ error_reporting(E_ALL); # Report errors/warnings/notices encountered
         <fieldset>
           <legend>Basic Structure:</legend>
             <label for="txt-num-words">Enter # of words (1 to 9):</label>
-              <input type="number" name="num_words" id="txt-num-words" min="1" max="9" maxlength="1"><br>
+              <input type="number" name="num_words" id="txt-num-words" min="1" max="9"><br>
             <label for="chk-add-number">Add a number?</label>
               <input type="checkbox" name="add_number" id="chk-add-number"><br>
             <label for="chk-add-symbol">Add a symbol?</label>
@@ -80,11 +80,12 @@ error_reporting(E_ALL); # Report errors/warnings/notices encountered
   <section class="row">
     <div class="col-md-12 about-section">
         <h3>Password Strength</h3>
-        <a href="http://xkcd.com/936/"><img border="0" alt="xkcd password strength explained" src="img/password_strength.png"></a>
+        <a href="http://xkcd.com/936/"><img alt="xkcd password strength explained" src="img/password_strength.png"></a>
     </div>
   </section>
 <!--  end row for about section  -->
-
+</main>
+<!--  end main content for index.php -->
 </div>
 <!-- end bootstrap container -->
 </body>
