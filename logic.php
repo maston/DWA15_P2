@@ -1,8 +1,12 @@
 <?php
+// echo $_POST['num_words'];
+// echo $_POST['add_number'];
+// echo $_POST['add_symbol'];
+
 // set up arrays of words and symbols
 $words = Array('chair', 'two', 'window', 'cords', 'musical', 'zebra', 'xylophone', 'penguin', 'home', 'dog', 'final', 'ink', 'teacher', 'fun', 'website', 'banana', 'uncle', 'softly', 'mega', 'ten', 'awesome', 'attach', 'blue');
 $symbols = Array('$', '#', '&', '*', '^', '@', '%');
-
+$pwd_text_class = 'password-text';
 // get password length from user settings
 $pwd_length = $_POST['num_words'];
 
@@ -24,9 +28,16 @@ if ($_POST['add_number']==true) {
 }
 
 // if adding a symbol was selected we add one from $symbols array
-if ($_POST['add_number']==true) {
+if ($_POST['add_symbol']==true) {
   $get_symbol = array_rand($symbols);
   $pwd .= $symbols[$get_symbol];
 }
+
+if ($_POST['num_words']=='') {
+  $pwd = '(password parameters not set yet)';
+  $pwd_text_class = 'password-text-not-set';
+}
+
+
 
 ?>

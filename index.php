@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL); # Report errors/warnings/notices encountered
-ini_set('display_errors', 1); # display errors on page
+// ini_set('display_errors', 1); # display errors on page
 ?>
 
 <!DOCTYPE html>
@@ -10,8 +10,9 @@ ini_set('display_errors', 1); # display errors on page
   <meta charset="utf-8">
 	<meta name="author" content="Sarah Maston">
 	<meta name="description" content="CSCI E-15 - Dynamic Web Applications - Project Two - xkcd password generator">
-	<!-- stylesheets: bootstrap and site -->
+	<!-- stylesheets: bootstrap, lavish-bootstrap theme and site -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/lavish-bootstrap.css">
 	<link rel="stylesheet" href="css/site.css">
   <!-- PHP require statment -->
 	<?php
@@ -25,23 +26,20 @@ ini_set('display_errors', 1); # display errors on page
 
 <header class="row">
   <h1>Maston's xkcd password generator</h1>
+  <p class="intro-copy">
+    Welcome to Maston's xkcd password generator.<br>
+    This app will generate a <a href="http://xkcd.com/936/">xkcd styled password</a> for you.<br>
+    All you need to do is pick the word count and pick your options.<br>
+    And Voila! A password will be generated for you with random words.<br>
+    Enjoy!
+  </p>
 </header>
 
 <!--  begin main content for index.html -->
 <main>
 
-<section class="row">
-  <div class="col-md-12 intro-section">
-    <p class="intro-copy">
-      Welcome to Maston's xkcd password generator.<br>
-      This app will generate a <a href="http://xkcd.com/936/">xkcd styled password</a> for you.<br>
-      All you need to do is pick the word count and pick your options.<br>
-      Enjoy!
-    </p>
-  </div>
-
-  <section class="row">
-      <div class="col-md-3 create-password-section">
+  <section class="row password-section">
+      <div class="col-md-12 create-password">
     <h3>Create your password:</h3>
     <form method="POST" action="index.php" id="password-form">
       <label for="txt-num-words">Enter # of words:</lable>
@@ -53,12 +51,12 @@ ini_set('display_errors', 1); # display errors on page
       <label for="chk-add-symbol">Add a symbol?</lable>
       <input type="checkbox" name="add_symbol" id="chk-add-symbol"><br>
 
-      <input type="submit" value="I can haz password, plz?">
+      <input type="submit" value="I can haz password, plz?" id="param-submit-button">
     </form>
     </div>
-    <div class="col-md-9 the-password-output-section">
+    <div class="col-md-12 the-password-output">
         <h3>Your password is:</h3>
-        <p><?php echo $pwd ?></p>
+        <p class=<?= $pwd_text_class?>><?php echo $pwd ?></p>
     </div>
 
   </section>
@@ -67,7 +65,8 @@ ini_set('display_errors', 1); # display errors on page
 <!--  begin row for about section  -->
   <section class="row">
 <!--  begin section for about  -->
-  <div class="col-md-9 about-section">
+  <div class="col-md-12 about-section">
+      <h3>Password Strength</h3>
       <a href="http://xkcd.com/936/"><img border="0" alt="xkcd password strength explained" src="img/password_strength.png"></a>
   </div>
 <!--  end section for about  -->

@@ -1,0 +1,32 @@
+.container {
+  text-align:center;
+}
+.password-section {
+  text-align: center;
+}
+.create-password {
+  background-color: #E5F0C1;  /* light green*/
+  border: 1px solid black;
+  border-radius: 1em;
+  margin-bottom: 1em;
+}
+
+.the-password-output {
+  background-color: #D0CFD2;  /* purply gray */
+  height: 100%;
+  border: 1px solid black;
+  border-radius: 1em;
+  margin-bottom: 1em;
+}
+
+.password-text {
+  font-family:consolas,courier;
+}
+
+.password-text-not-set {
+  font-style: italic;
+}
+
+#param-submit-button {
+  margin-top:1em;
+}
