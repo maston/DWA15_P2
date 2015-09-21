@@ -4,6 +4,7 @@
 <http://p2.maston.xyz/>
 
 ## Demo
+http://www.screencast.com/t/OhbOTLhzFBu
 
 ## Description
 This app will generate a xkcd styled password for you.
